@@ -2,11 +2,11 @@
 
 In the last guide we gave our chatbot tools. It could fetch real weather data. But it still had one problem. It could only answer from what the AI already knew. It had no access to our own documents or private knowledge.
 
-This guide fixes that. We build a **RAG chatbot** — a chatbot that reads your own files and answers questions from them.
+This guide fixes that. We build a **RAG chatbot** a chatbot that reads your own files and answers questions from them.
 
 ---
 
-> *Note: This guide covers RAG at a practical level inside n8n. We will go much deeper into RAG concepts — chunking strategies, embedding models, similarity search, reranking, and evaluation — in the upcoming LangChain series. Think of this as your first hands-on introduction before the deep dive.*
+> *Note: This guide covers RAG at a practical level inside n8n. We will go much deeper into RAG concepts chunking strategies, embedding models, similarity search, reranking, and evaluation in the upcoming LangChain series. Think of this as your first hands-on introduction before the deep dive.*
 
 ---
 
@@ -27,7 +27,7 @@ This guide fixes that. We build a **RAG chatbot** — a chatbot that reads your 
 
 ## What is the problem we are fixing?
 
-The old chatbot could only answer from what the AI model already knew during training. Ask it about your own documents, your company policies, or specific medical files you wrote — it had no idea.
+The old chatbot could only answer from what the AI model already knew during training. Ask it about your own documents, your company policies, or specific medical files you wrote it had no idea.
 
 ```mermaid
 flowchart TD
@@ -112,9 +112,9 @@ This workflow has two separate flows on the same canvas.
 
 ![Complete n8n RAG workflow showing Load Data Flow on the left and Retriever Flow on the right](images/01-full-workflow.png)
 
-**Load Data Flow** on the left — this is where you upload your files. It runs once to load documents into the vector store.
+**Load Data Flow** on the left this is where you upload your files. It runs once to load documents into the vector store.
 
-**Retriever Flow** on the right — this is the actual chatbot. Every time you ask a question it searches the vector store and answers from what it finds.
+**Retriever Flow** on the right this is the actual chatbot. Every time you ask a question it searches the vector store and answers from what it finds.
 
 The two flows share the same **Vector Store** and the same **Embeddings model**. That is what connects them.
 
@@ -180,7 +180,7 @@ This is the chatbot. It runs every time you send a message.
 
 ![Embeddings HuggingFace Inference configuration showing model name sentence-transformers all-MiniLM-L6-v2](images/05-embeddings-huggingface.png)
 
-This node converts text into numbers called embeddings. It is used by both flows — when loading documents to store them, and when searching to find similar ones.
+This node converts text into numbers called embeddings. It is used by both flows when loading documents to store them, and when searching to find similar ones.
 
 | Setting | Value | What it means |
 |---------|-------|--------------|
@@ -216,7 +216,7 @@ We loaded two text files into the knowledge base.
 
 **diabetes.txt** covers what diabetes is, the three types (Type 1, Type 2, Gestational), common symptoms like increased thirst and fatigue, risk factors, lifestyle tips, complications if untreated, and when to see a doctor.
 
-**fever.txt** covers what fever is, normal body temperature, home remedies, and exactly when to see a doctor — fever above 103°F, lasting more than 3 days, or with serious symptoms like difficulty breathing or severe headache.
+**fever.txt** covers what fever is, normal body temperature, home remedies, and exactly when to see a doctor fever above 103°F, lasting more than 3 days, or with serious symptoms like difficulty breathing or severe headache.
 
 These files were uploaded through the Load form, split into chunks, converted to embeddings, and stored in the `dr_ai_knowledge` vector store. Now the chatbot can search them.
 
