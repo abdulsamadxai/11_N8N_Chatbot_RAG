@@ -6,7 +6,7 @@ This guide fixes that. We build a **RAG chatbot** a chatbot that reads your own 
 
 ---
 
-> *Note: This guide covers RAG at a practical level inside n8n. We will go much deeper into RAG concepts chunking strategies, embedding models, similarity search, reranking, and evaluation in the upcoming LangChain series. Think of this as your first hands-on introduction before the deep dive.*
+> *Note: This guide covers RAG at a practical level inside n8n. We will go much deeper into RAG concepts chunking strategies, embedding models, similarity search, reranking, and evaluation in the upcoming **LangChain series**. Think of this as your first hands-on introduction before the deep dive.*
 
 ---
 
